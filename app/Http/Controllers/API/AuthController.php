@@ -17,11 +17,11 @@ class AuthController extends ApiController
             'phone'=>'required|numeric',
             'password' =>'required|string'
         ]);
-
-        if(!Auth::attempt($login)){
+       // (Auth::guard('admin')->attempt($credentials)
+        if(!Auth::guard('patients')->attempt($login)){
             return $this->sendError('not Authrized','Invalid login Data',200);
         }
-        $token = Auth::user()->createToken('AuthToken')->accessToken;
+        $token = Auth::guard('patients')->user()->createToken('AuthToken')->accessToken;
         return $this->sendResponse("Login Succefull",['accessToken'=>$token]);   
 
     }

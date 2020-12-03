@@ -101,10 +101,10 @@
 
                                     @foreach ($analyses as $Analysis)
                                         <tr>
-                                            <td> {{ date('Y-m-d', strtotime($Analysis->created_at)) }} </td>
-                                            <td>{{ date('H:i', strtotime($Analysis->created_at)) }}</td>
-                                            <td>{{ $Analysis->eating }}</td>
-                                            <td>{{ $Analysis->result }}</td>
+                                            <td> {{ date('Y-m-d', strtotime($Analysis->date_time)) }} </td>
+                                            <td>{{ date('H:i', strtotime($Analysis->date_time)) }}</td>
+                                            <td>{{ $Analysis->period }}</td>
+                                            <td>{{ $Analysis->glycemia }}</td>
                                         </tr>
                                     @endforeach
                                 @endisset

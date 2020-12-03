@@ -13,14 +13,14 @@ class CreateAnalysesTable extends Migration
      */
     public function up()
     {
-        Schema::create('analyses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('patient_id')->unsigned();
-            $table->foreign('patient_id')->references('id')->on('patients');
-            $table->integer('result'); 
-            $table->enum('eating', ['befor', 'after']);
-            $table->timestamps();
-        });
+        // Schema::create('analyses', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->integer('patient_id')->unsigned();
+        //     $table->foreign('patient_id')->references('id')->on('patients');
+        //     $table->integer('result'); 
+        //     $table->enum('eating', ['befor', 'after']);
+        //     $table->timestamps();
+        // });
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateAnalysesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('analyses');
+        //Schema::dropIfExists('analyses');
     }
 }

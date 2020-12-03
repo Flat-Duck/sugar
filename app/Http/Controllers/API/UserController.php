@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Analysis;
 class UserController extends ApiController
 {
     public function profile(Request $request)
@@ -32,9 +32,17 @@ class UserController extends ApiController
 
    public function syncData(Request $request)
    {
-       $analysis = $request->analysis;
-       $patient = $request->user();
-       $patient->analysis->saveMany($analysis);
+    $patient = $request->user();
+    
+       foreach ($request->analysis as $k => $hi) {
+        $topic = new Analysis($hi);
+        $patient->analysis()->save($topic);
+       }
+
+    //   // dd($topic);
+    //    $analysis = $request->analysis;
+    //   $patient = $request->user();
+    //    $patient->analysis()->saveMany($analysis);
        return $this->sendResponse("User Data Synced Succefully", ['user' => $request->user()]);
        
    }

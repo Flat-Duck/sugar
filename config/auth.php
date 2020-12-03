@@ -41,14 +41,14 @@ return [
             'provider' => 'users',
         ],
 
-        'patient' => [
+        'patients' => [
             'driver' => 'session',
             'provider' => 'patients',
         ],
 
         'api' => [
             'driver' => 'passport',
-            'provider' => 'users',
+            'provider' => 'patients',
             'hash' => false,
         ],
     ],
@@ -81,10 +81,10 @@ return [
             'model' => App\Patient::class
         ],
 
-        // 'users' => [
+        // 'patients' => [
         //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        //     'table' => 'patients',
+        //],
     ],
 
     /*
@@ -103,11 +103,11 @@ return [
     */
 
     'passwords' => [
-        // 'users' => [
-        //     'provider' => 'users',
-        //     'table' => 'user_password_resets',
-        //     'expire' => 60,
-        // ],
+        'patients' => [
+            'provider' => 'patients',
+            'table' => 'user_password_resets',
+            'expire' => 60,
+        ],
 
         'users' => [
             'provider' => 'users',
