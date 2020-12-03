@@ -1,6 +1,6 @@
 ## Stop
 
-This application is built using Laravel Factory.
+This application is built With love
 
 ### Installation
 1. Setup a site in your local environment.
@@ -23,6 +23,3 @@ Open `yoursiteurl.dev/admin` to access the admin panel.
 2. Service
 
 #### Packages
-
-
-Made with Love by [Laravel Factory](https://laravelfactory.com/).
