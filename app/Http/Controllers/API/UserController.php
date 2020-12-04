@@ -15,6 +15,7 @@ class UserController extends ApiController
     public function updateProfile(Request $request)
     {            
         $patient = $request->user();
+        request()->merge(['password'=>bcrypt($request->pass)]);
         $data = $request->validate($this->val());
         $patient->update($data);
 

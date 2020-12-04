@@ -9,7 +9,7 @@
         @csrf
 
         <div class="form-group has-feedback">
-            <input type="text" name="username" class="form-control" placeholder="Username">
+            <input type="email" name="email" class="form-control" placeholder="Username">
             <span class="fa fa-envelope form-control-feedback"></span>
         </div>
 

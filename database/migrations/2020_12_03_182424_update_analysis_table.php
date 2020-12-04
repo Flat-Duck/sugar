@@ -12,7 +12,7 @@ class UpdateAnalysisTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { Schema::dropIfExists('analyses');
         Schema::create('analyses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('glycemia');
