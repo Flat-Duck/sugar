@@ -9,9 +9,9 @@
             <div class="box-header with-border">
                 <h3 class="box-title">المرضى</h3>
 
-                <a class="pull-right btn btn-sm btn-primary" href="{{ route('admin.patients.create') }}">
+                {{-- <a class="pull-right btn btn-sm btn-primary" href="{{ route('admin.patients.create') }}">
                     إضافة جديد
-                </a>
+                </a> --}}
             </div>
             <div class="box-body">
                 <table class="table table-bordered">

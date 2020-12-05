@@ -10,8 +10,9 @@ use Illuminate\Notifications\Notifiable;
 
 class Admin extends Authenticatable
 {
-    use SoftDeletes, Notifiable;
+    use Notifiable;
 
+    protected $table = "users";
     /**
      * The attributes that should be mutated to dates.
      *
@@ -25,7 +26,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'username', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -57,7 +58,6 @@ class Admin extends Authenticatable
     {
         return [
             'name' => 'required|string|max:255',
-            'username' => 'required|string|max:255',
             'email' => 'required|email|max:255',
         ];
     }

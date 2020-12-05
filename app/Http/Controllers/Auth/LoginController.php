@@ -31,9 +31,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if($user->type == 'doctor')
-        { return redirect('Dhome');}
+        { return redirect('/doctor/appointments');}
         else
-        {return redirect('home'); }
+        {return redirect('/admin/dashboard'); }
     }
     /**
      * Create a new controller instance.
@@ -43,5 +43,18 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+        /**
+     * Log the user out of the application.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        auth()->logout();
+
+        request()->session()->invalidate();
+
+        return redirect('/login');
     }
 }

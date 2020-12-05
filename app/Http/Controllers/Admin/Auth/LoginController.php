@@ -38,23 +38,23 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
-    /**
-     * username column should be used for authentication instead of email column
-     *
-     * @return string
-     */
-    public function username()
-    {
-        return 'username';
-    }
+    // /**
+    //  * username column should be used for authentication instead of email column
+    //  *
+    //  * @return string
+    //  */
+    // public function username()
+    // {
+    //     return 'email';
+    // }
 
-    /**
-     * Guard to be used for authentication
-     */
-    protected function guard()
-    {
-        return Auth::guard('admin');
-    }
+    // /**
+    //  * Guard to be used for authentication
+    //  */
+    // protected function guard()
+    // {
+    //     return Auth::guard('admin');
+    // }
 
     /**
      * Log the user out of the application.
@@ -63,10 +63,10 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        $this->guard()->logout();
+        auth()->logout();
 
         request()->session()->invalidate();
 
-        return redirect('/admin');
+        return redirect('/login');
     }
 }

@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // Admin routes
 Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
     Route::resource('doctors', 'DoctorsController');
@@ -44,11 +40,11 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
          Route::resource('patients', 'PatientsController');
 
          Route::post('/patients/{patient}/move', 'PatientsController@move')->name('patient.move');
-    //     Route::get('/test','FirebaseController@index');
-    //     // Profile
+    
+         //     // Profile
          Route::get('/profile', 'AdminController@profile')->name('profile');
-    //     Route::post('/profile', 'AdminController@profileUpdate');
-    //     Route::post('/password', 'AdminController@passwordUpdate')->name('password_update');
+         Route::post('/profile', 'AdminController@profileUpdate');
+         Route::post('/password', 'AdminController@passwordUpdate')->name('password_update');
 
     //     // Logout
          Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -91,12 +87,10 @@ Route::name('doctor.')->prefix('doctor')->namespace('Doctor')->group(function ()
 
         // Route::resource('services', 'ServiceController');
 
-
-        // Route::get('/test','FirebaseController@index');
         // // Profile
         Route::get('/profile', 'DoctorController@profile')->name('profile');
-        // Route::post('/profile', 'AdminController@profileUpdate');
-        // Route::post('/password', 'AdminController@passwordUpdate')->name('password_update');
+         Route::post('/profile', 'DoctorController@profileUpdate');
+         Route::post('/password', 'DoctorController@passwordUpdate')->name('password_update');
 
         // // Logout
       

@@ -1,4 +1,4 @@
-@extends('admin.layouts.app', ['page' => ''])
+@extends('doctor.layouts.app', ['page' => ''])
 
 @section('title', 'الملف الشخصي')
 
@@ -62,7 +62,7 @@
                 <h3 class="box-title">تعديل كلمة المرور</h3>
             </div>
 
-            <form method="post" action="{{ route('admin.password_update') }}">
+            <form method="post" action="{{ route('doctor.password_update') }}">
                 @csrf
 
                 <div class="box-body">
