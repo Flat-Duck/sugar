@@ -15,7 +15,7 @@ class AuthController extends ApiController
     {
         $login = $request->validate([
             'phone'=>'required|numeric',
-            'password' =>'required|string'
+            'password' =>'required|string',
         ]);
        // (Auth::guard('admin')->attempt($credentials)
         if(!Auth::guard('patients')->attempt($login)){

@@ -40,10 +40,6 @@ class UserController extends ApiController
         $patient->analysis()->save($analys);
        }
 
-    //   // dd($topic);
-    //    $analysis = $request->analysis;
-    //   $patient = $request->user();
-    //    $patient->analysis()->saveMany($analysis);
        return $this->sendResponse("User Data Synced Succefully", ['user' => $request->user()]);
        
    }

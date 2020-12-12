@@ -15,7 +15,6 @@ class ApiController extends BaseController
     {
     	$response = [
             'success' => true,
-         //   'timeStamp' => Helper::firstWhere('tag', "original")->time_stamp,
             'message' => $message,        
             'data'    => $data,
         
