@@ -15,6 +15,16 @@ class Patient extends Authenticatable
     protected $fillable = [
         'name','gender', 'password','birth_date', 'diabetes_type', 'injury_year', 'phone', 'email', 'weight', 'height', 'state','heart_diseases','hypertension','bone_diseases','autoimmune_disease','Allergy_medicine','surgery', 'doctor_id'
     ];
+
+        /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
     public static function validationRules()
     {
         return [

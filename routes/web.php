@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 // Admin routes
 Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
+    Route::post('/doctors/{user}', 'DoctorsController@destroy')->name('doctors.activate');
     Route::resource('doctors', 'DoctorsController');
 
-    // Route::namespace('Auth')->middleware('guest:admin')->group(function () {
+    Route::group(['middleware' => ['auth','verified','isAdmin']], function () {
     //     // Login
     //     Route::get('/', 'LoginController@showLoginForm')->name('login');
     //     Route::post('/', 'LoginController@login');
@@ -48,7 +49,7 @@ Route::name('admin.')->prefix('admin')->namespace('Admin')->group(function () {
 
     //     // Logout
          Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-    // });
+     });
 });
 
 
@@ -68,7 +69,7 @@ Route::name('doctor.')->prefix('doctor')->namespace('Doctor')->group(function ()
     // });
 
     // Logged in admin user required
-    Route::group(['middleware' => 'auth'], function () {
+    Route::group(['middleware' => ['auth','verified','isDoctor']], function () {
         // Dashboard
       Route::get('/dashboard', 'DoctorController@dashboard')->name('dashboard');
 
@@ -98,4 +99,9 @@ Route::name('doctor.')->prefix('doctor')->namespace('Doctor')->group(function ()
     
 });
 Route::get('/logout', 'Auth\LoginController@logout')->name('doctor.logout');
-Route::auth();
+// Route::auth();
+//Auth::routes();
+Auth::routes(['verify' => true]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

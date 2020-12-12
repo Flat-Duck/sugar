@@ -13,8 +13,9 @@
                     إضافة جديد
                 </a> --}}
             </div>
-            <div class="box-body">
-                <table class="table table-bordered">
+            <div  class="box-body">
+                <table  id="table" class="table table-bordered">
+                    <thead>
                     <tr>
                         <th>#</th>
                         <th>الاسم</th>
@@ -27,7 +28,8 @@
                         <th>الدكتور</th>
                         <th>العمليات</th>
                     </tr>
-
+                    </thead>
+                    <tbody>
                     @forelse ($patients as $k=> $patient)
                         <tr>
                             <td>{{ $k+1 }}</td>
@@ -66,6 +68,7 @@
                             <td colspan="5">No records found</td>
                         </tr>
                     @endforelse
+                    </tbody>
                 </table>
             </div>
 

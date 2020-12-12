@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -28,4 +29,9 @@ class DoctorsController extends Controller
         return redirect()->route('admin.orders.index');
     }
 
+    public function destroy(User $user,Request $request)
+    {
+        $user->toggleActive();
+        return redirect()->route('admin.doctors.index');
+    }
 }

@@ -36,8 +36,8 @@ class UserController extends ApiController
     $patient = $request->user();
     
        foreach ($request->analysis as $k => $hi) {
-        $topic = new Analysis($hi);
-        $patient->analysis()->save($topic);
+        $analys = new Analysis($hi);
+        $patient->analysis()->save($analys);
        }
 
     //   // dd($topic);

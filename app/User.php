@@ -63,5 +63,14 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->state = "unactive";
         $this->save();
     }
+
+    public function toggleActive()
+    {
+        if ( $this->state == "active") {
+            $this->unapprove();
+        }else{
+            $this->approve();
+        }
+    }
 }
       

@@ -13,15 +13,17 @@
                     إضافة جديد
                 </a> --}}
             </div>
-            <div class="box-body">
-                <table class="table table-bordered">
+            <div  class="box-body">
+                <table id="table" class="table table-bordered">
+                    <thead>
                     <tr>
                         <th>#</th>
                         <th>الاسم</th>
                         <th>البريد الالكتروني</th>
                         <th>العمليات</th>
                     </tr>
-
+                </thead>
+                <tbody>
                     @forelse ($doctors as $k=> $doctor)
                         <tr>
                             <td>{{ $k+1 }}</td>
@@ -32,13 +34,12 @@
                                     <i class="fa fa-pencil-square-o"></i>
                                 </a> --}}
 
-                                <form action="{{ route('admin.doctors.destroy', ['doctor' => $doctor->id]) }}"
+                                <form action="{{ route('admin.doctors.activate', ['user' => $doctor->id]) }}"
                                     method="POST"
                                     class="inline pointer"
                                 >
                                     @csrf
-                                    @method('DELETE')
-
+                                   
                                     <a onclick="if (confirm('Are you sure?')) { this.parentNode.submit() }">
                                         <i class="fa fa-trash-o"></i>
                                     </a>
@@ -50,6 +51,7 @@
                             <td colspan="5">No records found</td>
                         </tr>
                     @endforelse
+                </tbody>
                 </table>
             </div>
 

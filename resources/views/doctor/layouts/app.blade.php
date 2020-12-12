@@ -171,13 +171,26 @@
 
     <script src="{{ mix('/js/admin/vendor.js') }}"></script>
     <script src="{{ mix('/js/admin/app.js') }}"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
 
     @if (session('message'))
         <script>
             showNotice("{{ session('type') }}", "{{ session('message') }}");
         </script>
     @endif
-
+    <script>
+        $(function () {
+         // $('#table').DataTable()
+          $('#table').DataTable({
+            'paging'      : false,
+            'lengthChange': false,
+            'searching'   : true,
+            'ordering'    : true,
+            'info'        : false,
+            'autoWidth'   : false
+          })
+        })
+      </script>
     {{-- You can put page wise javascript in scripts section --}}
     @stack('scripts')
 </body>
