@@ -37,6 +37,15 @@ class AppointmentsController extends Controller
         $advice =  $request->validate(Advice::validationRules());
         $advice = new Advice($advice);
         
+        $chat = new Chat();
+
+        $chat->user_id = auth()->user()->id;
+        $chat->sender_id = auth()->user()->id;
+        $chat->patient_id = $patient->id;
+        $chat->message = $advice->prescription;
+        $chat->save();
+
+
         $patient->advices()->update(['old' =>true]);
         $patient->advices()->save($advice);
 
