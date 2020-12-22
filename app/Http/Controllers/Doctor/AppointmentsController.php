@@ -4,6 +4,7 @@ namespace App\Http\Controllers\doctor;
 
 use App\Patient;
 use App\User;
+use App\Chat;
 use App\Analysis;
 use App\Advice;
 use App\Http\Controllers\Controller;
